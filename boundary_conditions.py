@@ -69,7 +69,6 @@ def modify_bc(file_path):
         if 'symmetry' in line:
             section_flag = True
             new_bc="symmetry"
-            print(str('symmetry')+line)
         if section_flag and "type" in line:
            line = line.replace("patch", new_bc)
 
