@@ -51,7 +51,6 @@ def foamToCSV(file_name, filename_out):
     for line in file_contents:
 	if line[0].isdigit() and flag:
 	   	temp.write(line)
-		print(line)
 		
 	if line[0].isdigit():
 		flag=True
