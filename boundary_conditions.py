@@ -15,21 +15,17 @@ import sys
 
 version=1
 subversion=0
-"""
-to do: convert from sh to python
 
-if [[ $1 == "-help" ]]; then
-	echo "Version $version . $subversion"
-	echo "-version for version number"
-	echo "-help to run the help"
-exit 1
-fi
 
-if [[ $1 == "-version" ]]; then
-	echo "Version $version . $subversion"
-exit 1
-fi
-"""
+if sys.argv[1]=='-help':
+	print("Version "+str(version)+"."+str(subversion))
+	print("-version for version number")
+	print("-help to run the help")
+	print("Run as python boundary_conditions.py")
+
+if sys.argv[1]=='-version':
+	print("Version "+str(version)+"."+str(subversion))
+
 
 # constant boundary patch replace
 # if name starts with
