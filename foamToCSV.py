@@ -7,12 +7,14 @@ This function offers an simple way to convert the results file from FOAM format 
 It will erase the strings which start with a word.
 
 How to use it: foamToCSV time/field file.
-i.e. foamToCSV 0/U
+
+i.e. foamToCSV 0/p
 
 Warning: It works only on reconstructed file
 
 Warning: it will erase also the first numerical line
 
+Warning: it will work only on scalar field. For vector, see foamToCSVVector.py
 """
 
 import os
@@ -48,13 +50,13 @@ def foamToCSV(file_name):
 	if line[0].isdigit() and flag:
 	   	temp.write(line)
 		print(line)
-		#print("digit  "+line)
+		
 	if line[0].isdigit():
 		flag=True
-		#print("digit but flag false  "+line)
+		
 	else:
 		flag=False
-		#print("not digit  "+line)
+		
 
   temp.close()
   f.close()
