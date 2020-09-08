@@ -66,4 +66,4 @@ def foamToCSV(file_name, filename_out):
 
 file_name = sys.argv[1]
 filename_out = sys.argv[2]
-foamToCSVVector(file_name, filename_out)
+foamToCSV(file_name, filename_out)
