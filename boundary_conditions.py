@@ -15,6 +15,8 @@ import sys
 
 version=1
 subversion=0
+"""
+to do: convert from sh to python
 
 if [[ $1 == "-help" ]]; then
 	echo "Version $version . $subversion"
@@ -27,6 +29,7 @@ if [[ $1 == "-version" ]]; then
 	echo "Version $version . $subversion"
 exit 1
 fi
+"""
 
 # constant boundary patch replace
 # if name starts with
