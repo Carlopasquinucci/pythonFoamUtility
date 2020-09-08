@@ -6,15 +6,17 @@
 This function offers an simple way to convert the results file from FOAM format to CSV.
 It will erase the strings which start with a word.
 
-How to use it: foamToCSV time/field file.
+How to use it: python foamToCSV.py time/field outputfile.
 
-i.e. foamToCSV 0/p
+i.e. python foamToCSV 0/p p
 
 Warning: It works only on reconstructed file
 
 Warning: it will erase also the first numerical line
 
 Warning: it will work only on scalar field. For vector, see foamToCSVVector.py
+
+Tested with Python 2.7.16
 """
 
 import os
@@ -28,7 +30,7 @@ if sys.argv[1]=='-help':
 	print("Version "+str(version)+"."+str(subversion))
 	print("-version for version number")
 	print("-help to run the help")
-	print("Run as python foamToCSV.py time/field")
+	print("Run as python foamToCSV.py time/field outputfile")
 	print("WARNING: It doesn't work with vector fields") 
 
 if sys.argv[1]=='-version':
@@ -41,9 +43,9 @@ def read_file(file_name):
   return content
 
 
-def foamToCSV(file_name):
+def foamToCSV(file_name, filename_out):
   file_contents = read_file(file_name)
-  temp = open("temp.csv", 'w')
+  temp = open("filename_out", 'w')
   with open(file_name, 'r') as f:
     flag=False
     for line in file_contents:
@@ -63,4 +65,5 @@ def foamToCSV(file_name):
   return
 
 file_name = sys.argv[1]
-foamToCSV(file_name)
+filename_out = sys.argv[2]
+foamToCSVVector(file_name, filename_out)
