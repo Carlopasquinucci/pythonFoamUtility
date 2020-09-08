@@ -45,7 +45,7 @@ def read_file(file_name):
 
 def foamToCSV(file_name, filename_out):
   file_contents = read_file(file_name)
-  temp = open("filename_out", 'w')
+  temp = open(filename_out, 'w')
   with open(file_name, 'r') as f:
     flag=False
     for line in file_contents:
