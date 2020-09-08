@@ -13,6 +13,8 @@ Warning: It works only on reconstructed file
 
 Warning: it will erase also the first numerical line
 
+Tested with Python 2.7.16
+
 """
 
 import os
