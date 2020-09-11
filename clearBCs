@@ -1,0 +1,58 @@
+#!/usr/bin/python
+
+"""
+These functions offer easy ways to automate changes in OpenFOAM.
+This script will clear the bc for a non-zero timestep.
+
+Run as python clear_BCs.py buondaryFile
+Checked with python3.7
+"""
+
+import os
+import sys
+
+version=1
+subversion=0
+
+
+if len(sys. argv)!=1:
+	print("Error: number of argument is not correct")
+	print("Please, check if you gave the input file")
+	print("Please: -help to run the help")
+	print("Run as python clear_BCs.py buondaryFile")
+	print("Ex: python clear_BCs.py 0/p")
+	print("---- Not working for vector fields ----")
+
+
+if sys.argv[1]=='-help':
+	print("Version "+str(version)+"."+str(subversion))
+	print("-version for version number")
+	print("-help to run the help")
+	print("Run as python clear_BCs.py")
+
+if sys.argv[1]=='-version':
+	print("Version "+str(version)+"."+str(subversion))
+
+
+
+
+def modify_bc(file_path):
+  section_flag = False
+  fout = open("newDir/"+str(inputfile), "w")
+  with open(file_path) as f:
+    for line in f:
+        if line == '' or not line[0].isdigit():
+	       c=line[0]
+	       if c is not '-':
+                  fout.writelines(line)
+
+
+  f.close()
+  fout.close()
+  return
+
+#########___________main
+
+inputfile=sys.argv[1]
+
+modify_bc(inputfile)
